@@ -1,0 +1,8 @@
+G2Sd                    Grain-size Statistics and Description of
+                        Sediment
+coord_gran              Localisation of stations sampled
+grandistrib             Composition of the sediment
+granmap                 Mapping the distribution of sediment
+granplot                Histogram with a cumulative percentage curve
+granstat                Calculates all descriptive statistics
+granulo                 Data frame for G2Sd package

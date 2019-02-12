@@ -1,0 +1,18 @@
+Package: G2Sd
+Type: Package
+Title: Grain-Size Statistics and Description of Sediment
+Version: 2.1.6
+Date: 2016-03-31
+Depends: R (>= 3.0.2)
+Imports: shiny, xlsx, rJava, xlsxjars, reshape2, ggplot2, stats,
+        graphics, grDevices, ggmap, RgoogleMaps
+Author: Regis K. Gallon (MNHN), Jerome Fournier (CNRS|MNHN)
+Maintainer: Regis K. Gallon <reg.gallon@gmail.com>
+Description: Full descriptive statistics, physical description of sediment,
+            metric or phi sieves.
+License: GPL-3
+LazyData: TRUE
+URL: https://cran.r-project.org/package=G2Sd,
+        http://regisgallon.wordpress.com/r-software/
+NeedsCompilation: no
+Packaged: 2018-06-05 14:17:48 UTC; R<c3><a9>gis Gallon
