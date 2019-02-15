@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1550163261536.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3928314310",
+    "id" : "6EBB9BED",
+    "lastKnownWriteTime" : 1550214538,
+    "last_content_update" : 1550214538092,
+    "path" : "C:/Users/Régis Gallon/OneDrive - LECNAM/2018-2019/7-gitlab/G2Sd/R/G2Sd-internal.R",
+    "project_path" : "R/G2Sd-internal.R",
+    "properties" : {
+        "cursorPosition" : "12,11",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

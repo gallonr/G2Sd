@@ -25,7 +25,7 @@ There are four functions. \kbd{granstat} is a function which provides all result
 \kbd{granmap} is a function which provides a georeferenced map of the sediment distribution.
 }
 \author{
-Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}, 
+Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net}, 
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 \references{

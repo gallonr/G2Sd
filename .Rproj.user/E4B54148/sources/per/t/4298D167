@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1550212965085.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1285719299",
+    "id" : "4298D167",
+    "lastKnownWriteTime" : 1528208268,
+    "last_content_update" : 1528208268,
+    "path" : "C:/Users/Régis Gallon/OneDrive - LECNAM/2018-2019/7-gitlab/G2Sd/R/granstat.R",
+    "project_path" : "R/granstat.R",
+    "properties" : {
+        "cursorPosition" : "22,43",
+        "scrollLine" : "12"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
