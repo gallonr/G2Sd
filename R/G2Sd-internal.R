@@ -184,7 +184,7 @@ function(x){
     Dall <- Dall %>% mutate(meshsize=.phi2um(phi)) %>% select(samples,phi,meshsize) %>% mutate(percentile=D[i]*100)
     mat.D <- bind_rows(mat.D,Dall)
     }
-    
+    mat.D$percentile <- 100-mat.D$percentile
     return(mat.D)
   }
 
