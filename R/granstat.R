@@ -1,5 +1,5 @@
 granstat <-
-  function(x,web_interface=FALSE,statistic="all",aggr=TRUE,modes=FALSE,
+  function(x,phiSize=FALSE,web_interface=FALSE,statistic="all",modes=FALSE,
            FromLargetoSmall=TRUE){
     
     if(web_interface==TRUE){
@@ -10,114 +10,76 @@ granstat <-
     x <- .grancompat(x)
     
     if(any(as.numeric(row.names(x))==0)) 
-      meshmin <- 0.000160 else meshmin <- min(as.numeric(row.names(x)))
+      meshmin <- 1 else meshmin <- min(as.numeric(row.names(x)))
       
       STAT=c("arithmetic","geometric","folk.ward","all")
       statistic <- pmatch(statistic, STAT)
       
-      if (sum(as.numeric(row.names(x)))>45) 
-      {
-        um <- as.numeric(row.names(x))
-        phi=rep(0,length(um))
-        for (i in 1:length(um))
-          if (um[i]!=0) phi[i]=-log2(um[i]/1000) else phi[i]=-log2(meshmin/1000)
-      }
-      
-      if (sum(as.numeric(row.names(x)))<=45) 
+      if (phiSize) 
       {
         phi=as.numeric(row.names(x))
-        um=rep(0,length(phi))
-        for (i in 1:length(phi)) um[i]=(1/2^phi[i])*1000
+        row.names(x) <- .phi2um(phi)
       }
       
-      if (modes==TRUE) mod=.mode.sedim(x,um) else mod=NULL
+      if (modes==TRUE) .mode.sedim(x)
       
-      index=.index.sedim(x,phi,um,decreasing=FromLargetoSmall)
-      textur=.texture.sedim(x,um)
-      descript=.sedim.descript(x,um)
+      index=.index.sedim(x,decreasing=FromLargetoSmall)
+      texture=.texture.sedim(x)
+      descript=.sedim.descript(x)
       
       if (statistic==1)
       {
-        arith=.moment.arith(x,um)
-        
-        if (aggr==TRUE)
-        {
-          result=data.frame(rbind(arith,mod,index,textur,descript))
-          result
-        }
-        if (aggr!=TRUE)
-        {
-          result=new.env()
+        arith=.moment.arith(x)  
+        result=new.env()
           result$stat=arith
-          result$mode=mod
           result$index=index
-          result$sedim=rbind(textur,descript)
+          result$sedim$texture=texture
+          result$sedim$descript=descript
           result=as.list(result)
-        }
       }
       
       if (statistic==2)
       {
-        geom=.moment.geom(x,phi)
-        if (aggr==TRUE)
-        {
-          result=data.frame(rbind(geom,mod,index,textur,descript))
-          result
-        }
-        if (aggr!=TRUE)
-        {
+          geom=.moment.geom(x)
           result=new.env()
           result$stat=geom
-          result$mode=mod
           result$index=index
-          result$sedim=rbind(textur,descript)
+          result$sedim$texture=texture
+          result$sedim$descript=descript
           result=as.list(result)
-        }
       }
       
       
       if (statistic==3)
       {
-        fowa=.fowa.stat(x,phi,um,decreasing=FromLargetoSmall)
-        if (aggr==TRUE)
-        {
-          result=data.frame(rbind(fowa,mod,index,textur,descript))
-          result
-        }
-        if (aggr!=TRUE)
-        {
+        fowa=.fowa.stat(x,decreasing=FromLargetoSmall)
           result=new.env()
           result$stat=fowa
-          result$mode=mod
           result$index=index
-          result$sedim=rbind(textur,descript)
+          result$sedim$texture=texture
+          result$sedim$descript=descript
           result=as.list(result)
-        }
+  
       }
       
       
       if (statistic==4)
       {
-        arith=.moment.arith(x,um)
-        geom=.moment.geom(x,phi)
-        fowa=.fowa.stat(x,phi,um,decreasing=FromLargetoSmall)
-        if (aggr==TRUE)
-        {
-          result=data.frame(rbind(arith,geom,fowa,index,textur,descript))
-          result
-          
-        }
-        if (aggr!=TRUE)
-        {
+        arith=.moment.arith(x)
+        geom=.moment.geom(x)
+        fowa=.fowa.stat(x,decreasing=FromLargetoSmall)
           result=new.env()
-          result$stat=rbind(arith,geom,fowa)
-          result$mode=mod
+          result$stat$arith=arith
+          result$stat$geom=geom
+          result$stat$fowa=fowa
           result$index=index
-          result$sedim=rbind(textur,descript)
+          result$sedim$texture=texture
+          result$sedim$descript=descript
           result=as.list(result)
         }
       }
-      return(result)}
-      
+      return(result)
+    
 }
+
 
