@@ -13,12 +13,15 @@ Are also included the percentage of particules falling into each predefined size
 \kbd{granstat} is a function which provides all results organized in two ways: a complete matrix (by default) or by separate items.
 }
 \usage{
-granstat(x, web_interface=FALSE, statistic = "all", aggr = TRUE, modes = FALSE,
-FromLargetoSmall=T)
+granstat(x, phiSize=FALSE, web_interface=FALSE, statistic = "all", modes = FALSE,
+FromLargetoSmall=TRUE)
 }
 \arguments{
   \item{x}{
 A numeric matrix or data frame
+}
+  \item{phiSize}{
+If TRUE, phi meshsizes are used . If FALSE, micrometer meshsizes are used 
 }
   \item{web_interface}{
 if TRUE, a simplified interface is displayed from your default web browser
@@ -26,9 +29,7 @@ if TRUE, a simplified interface is displayed from your default web browser
   \item{statistic}{
 Statistic used: "arithmetic", "geometric", "folk.ward", "all". If this argument is not used, all statistics are calculated
 }
-  \item{aggr}{
-If TRUE, a complete matrix is provided. If FALSE, the results are organized in separate items: \kbd{$stat}, \kbd{$index}, \kbd{$mode}, \kbd{$sedim}. If this argument is not used, a complete matrix is provided
-}
+
   \item{modes}{
 If TRUE, the mode must be determinated graphically by the user. If FALSE, the mode is not determinated. If this argument is not used, no determination of the mode is proposed
 }
@@ -47,7 +48,7 @@ If 1, 2 or 3 modes are chosen, the user has to use the function stop locator in 
 If the weight of sediment retained on the broadest sieve exceeds 5 percent of the total mass of the sample, the Folk and Ward statistics cannot be computed. 
 }
 \value{
-A matrix containing
+A list containing
 
 \item{mean.arith}{the mean of grain-size distribution (arithmetic method of moments)}
 \item{sd.arith}{the standard-deviation of grain-size distribution (arithmetic method of moments)}
@@ -109,7 +110,7 @@ A matrix containing
 \cite{Wentworth, C.K. 1922. A scale of grade and class terms for clastic sediments. \emph{Journal of Geology} \strong{30}, 377-392}
 }
 \author{
-Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}, 
+Regis K. Gallon (MNHN) \email{regis.gallon@lecnam.net}, 
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 
@@ -117,8 +118,8 @@ Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 #granulo is the data set
 data(granulo)
 granstat(granulo)
-granstat(granulo,statistic="all",aggr=TRUE,modes=FALSE)
-granstat(granulo,statistic="folk.ward",aggr=FALSE,modes=TRUE)
+granstat(granulo,statistic="all",modes=FALSE)
+granstat(granulo,statistic="folk.ward",modes=TRUE)
 
 #to display the simplified interface
 #granstat(web_interface=TRUE)
