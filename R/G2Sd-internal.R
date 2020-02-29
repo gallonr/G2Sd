@@ -1,3 +1,15 @@
+utils::globalVariables(c("runApp", "meshsize", "percentile","phi",'samples',
+                         "D5","D10","D16","D25","D50","D75","D84","D90","D95",
+                         "mean.fw.phi","sd.fw.phi","skewness.fw.phi","kurtosis.fw.phi",
+                         "mean.descript","sorting","skewness","kurtosis","value","relative.value",
+                         "meshsize.midpoint","mean.arith.um","sd.arith.um","mean.geom.um","sd.geom.um",
+                         "cum.sum","phi.max","phi.min","ratio","Sand","Mud","sandmud","Gravel",
+                         "granulo","weight","weight.cum","value.relative","texture"))
+
+
+
+
+
 .um2phi <- function(um)
 {return(-log2(um/1000))}
 
@@ -196,7 +208,8 @@ function(x){
                        if_else(meshsize<sedim[11] & meshsize>=sedim[12],"vcsilt",
                        if_else(meshsize<sedim[12] ,"silt","NA"))))))))))))))
                                                                                                                
-sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.value))  
+sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.value)) %>% 
+  spread(class,value)
     return(sediment)
   }
 .texture.sedim <- function(x){
@@ -236,7 +249,7 @@ sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.val
                    if_else(sandmud<1/9 & (Gravel>5 & Gravel<=30), "Gravelly Mud",
                    if_else(sandmud<1/9 & (Gravel>0 & Gravel<=5), "Slightly Gravelly Mud",
                    if_else(sandmud<1/9 & Gravel==0, "Mud","NA"))))))))))))))))))))) %>% 
-    select(-sandmud) %>% gather(-c("samples","texture"),key="class",value="value")
+    select(-sandmud) 
 
     return(Texture)
 }
