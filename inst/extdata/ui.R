@@ -1,7 +1,8 @@
 
 library(shiny)
 
-stat.choose <- c("arithmetic","geometric", "folk.ward", "all")
+
+stat.choose <- c("arithmetic","geometric", "folk.ward")
 # Define UI for miles per gallon application
 shinyUI(fluidPage(theme = "bootstrap.css",
   
@@ -9,7 +10,7 @@ shinyUI(fluidPage(theme = "bootstrap.css",
   headerPanel(strong("G2Sd : Grain-size Statistics and Description of Sediment")),  
   sidebarPanel(
     
-    span(p(img(src = "R_logo.png", height = 72, width = 72),strong("  G2Sd"), " and ", strong("Shiny"), " are available on CRAN"),style ="text-align:center"),
+    span(p(strong("G2Sd")," is available on", a(img(src = "https://lamachinerie.org/wp-content/uploads/2019/06/github.jpg", height = 70, width = 200),href = "https://github.com/gallonr/G2Sd",target="_blank")),style ="text-align:center"),
     
     wellPanel(
       h3(p(strong("Data"))),
@@ -27,7 +28,7 @@ shinyUI(fluidPage(theme = "bootstrap.css",
       h5(em("Methods")),
       h4(strong(em(selectInput('method', '', stat.choose)))),
       h5(em("Results displayed")),
-      h4(strong(em(selectInput('gran', '', c('Statistics','Index','Texture','All'))))),
+      h4(strong(em(selectInput('gran', '', c('Statistics','Index','Texture','Sedim','All'))))),
       downloadButton('downloadData', 'Download')
     ),
     
@@ -45,7 +46,7 @@ shinyUI(fluidPage(theme = "bootstrap.css",
     ),
     
     span(p("For more information, please contact ",  a(span("regis.gallon@lecnam.net", style = "color:blue"), href="mailto:regis.gallon@lecnam.net?subject=[G2Sd]%20Information"),style ="text-align:center")),  
-    span(p(img(src = "mnhn.gif", height = 120, width = 200),img(src = "cnrs.gif", height = 80, width = 80)),style ="text-align:center")  
+    span(p(img(src = "https://media-exp1.licdn.com/dms/image/C4E0BAQFNO73Lo4I2Ng/company-logo_200_200/0?e=2159024400&v=beta&t=EWsUo-le-krHJWQD48FnEjKubdTTeir_zabBTObMl8Q", height = 100, width = 100),img(src = "cnrs.gif", height = 80, width = 80)),style ="text-align:center")  
     
   ),
   
