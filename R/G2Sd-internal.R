@@ -4,7 +4,9 @@ utils::globalVariables(c("runApp", "meshsize", "percentile","phi",'samples',
                          "mean.descript","sorting","skewness","kurtosis","value","relative.value",
                          "meshsize.midpoint","mean.arith.um","sd.arith.um","mean.geom.um","sd.geom.um",
                          "cum.sum","phi.max","phi.min","ratio","Sand","Mud","sandmud","Gravel",
-                         "granulo","weight","weight.cum","value.relative","texture"))
+                         "granulo","weight","weight.cum","value.relative","texture",
+                          "cgravel","csand","fgravel","fsand","mgravel","msand","silt","vcgravel",
+                          "vcsand","vcsilt","vfgravel","vfsand"))
 
 
 
@@ -191,8 +193,7 @@ function(x){
   x <- .g2sd_tidy(x)  
   
   sedim <- c(63000,31500,2^c(4:-3)*1000,63,40)
-  texture <- c(63000,2000,63)
-  
+
   all <- x %>% group_by(samples) %>% mutate(relative.value=value*100/sum(value)) %>% 
     mutate(class=if_else(meshsize>=sedim[1],"boulder",
                        if_else(meshsize<sedim[1] & meshsize>=sedim[2],"vcgravel",
@@ -209,7 +210,8 @@ function(x){
                        if_else(meshsize<sedim[12] ,"silt","NA"))))))))))))))
                                                                                                                
 sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.value)) %>% 
-  spread(class,value)
+  spread(class,value) %>% select(samples,everything(),cgravel,mgravel,fgravel,vfgravel,vcsand,
+                                 csand,msand,fsand,vfsand,vcsilt,silt)
     return(sediment)
   }
 .texture.sedim <- function(x){
@@ -249,7 +251,7 @@ sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.val
                    if_else(sandmud<1/9 & (Gravel>5 & Gravel<=30), "Gravelly Mud",
                    if_else(sandmud<1/9 & (Gravel>0 & Gravel<=5), "Slightly Gravelly Mud",
                    if_else(sandmud<1/9 & Gravel==0, "Mud","NA"))))))))))))))))))))) %>% 
-    select(-sandmud) 
+    select(-sandmud) %>% select(samples,everything(),Sand,Mud,texture) 
 
     return(Texture)
 }
