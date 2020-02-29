@@ -3,7 +3,6 @@
 ####################################
 
 ### generic methods importation
-import("stats")
 import("reshape2")
 import("ggplot2")
 import("tibble")
@@ -11,6 +10,8 @@ import("tidyr")
 import("readr")
 import("rlang")
 import("dplyr")
+importFrom("scales", "trans_new","log_breaks")
+importFrom("stats", "na.omit")
 importFrom("grDevices", "rainbow")
 importFrom("graphics", "axis", "barplot", "identify", "layout",
      "legend", "lines", "mtext", "par", "plot", "polygon",
