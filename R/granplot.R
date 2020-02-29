@@ -20,8 +20,8 @@ weight.gran <- data.frame(um=um,weight=class.weight,
 hist.cum.plot <- ggplot(weight.gran)+
   theme(panel.background = element_blank(),
         panel.grid = element_line(colour="gray"),
-        axis.title=element_text(size = rel(1.2),face="bold"),
-        axis.text=element_text(size = rel(1.1),colour="black"),
+        axis.title=element_text(size = 13,face="bold"),
+        axis.text=element_text(size = 11,colour="black"),
         strip.text.x = element_text(size = rel(1.0), face = "bold"),
         axis.ticks=element_line(colour="black"),
         axis.line=element_line(colour="black"))+
@@ -94,10 +94,10 @@ if (length(xc)!=1)
     p <- ggplot(class.weight.cum,aes_string(x="gsize",y="value",shape="var",col="var"))+geom_line(size=2)+
       theme_bw()+labs(x=expression(log[10](Particule~size)), y="Percentage cum.(%)",title=main)+
     theme( plot.title = element_text(size = rel(1.5), colour = "black",face="bold"),
-      axis.title.y = element_text(size = rel(1.3), face = "bold"),
-          axis.title.x = element_text(size = rel(1.3), face = "bold"),
-          axis.text.y = element_text(size = rel(1.1), face = "bold"),
-          axis.text.x = element_text(size = rel(1.1),face="bold"))+scale_colour_hue("Stations")+
+      axis.title.y = element_text(size = 13, face = "bold"),
+          axis.title.x = element_text(size = 13, face = "bold"),
+          axis.text.y = element_text(size = 11, face = "bold"),
+          axis.text.x = element_text(size = 11,face="bold"))+scale_colour_hue("Stations")+
       scale_x_log10()
   print(p)
 }
