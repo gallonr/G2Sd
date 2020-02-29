@@ -1,5 +1,5 @@
 granplot <-
-function(x,xc=1,meshmin=10,hist=TRUE,cum=TRUE,main="",col.cum="red",
+function(x,xc=1,meshmin=1,hist=TRUE,cum=TRUE,main="",col.cum="red",
          col.hist="darkgray",cexname=0.9,cexlab=1.3,decreasing=FALSE) 
   {
 
