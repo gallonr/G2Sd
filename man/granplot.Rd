@@ -8,8 +8,8 @@ Histogram with a cumulative percentage curve
 This function provides a histogram of the grain-size distribution with a cumulative percentage curve
 }
 \usage{
-granplot(x, xc = 1, hist = TRUE, cum = TRUE, main = "", 
-			col.cum = "red", col.hist="gray", cexname=0.9,
+granplot(x, xc = 1, meshmin=1, hist = TRUE, cum = TRUE, main = "", 
+			col.cum = "red", col.hist="darkgray", cexname=0.9,
 			cexlab=1.3,decreasing=FALSE)
 }
 \arguments{
@@ -19,6 +19,11 @@ A numeric matrix or data frame (see the shape of data(granulo))
   \item{xc}{
 A numeric value or a numeric vector to define columns
 }
+
+  \item{meshmin}{
+Define the size of the smallest meshsize if it is 0 in raw data
+}
+
   \item{hist}{
 If TRUE, display a histogram; if FALSE, do not display a histogram (only for only one column)
 }
