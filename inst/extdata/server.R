@@ -1,5 +1,7 @@
 library(shiny)
 library(G2Sd)
+library(readxl)
+library(tidyverse)
 
 grancompat <-
   function(x)
@@ -34,40 +36,54 @@ shinyServer(function(input, output) {
     output$stat <- renderTable({ 
       
       if (input$gran=='Statistics') {
-        result <-granstat(bdd_gran,statistic=input$method,aggr=FALSE)$stat
+        result <-granstat(bdd_gran,statistic=input$method)$stat
         
         output$downloadData <- downloadHandler(
           filename = "Statistics.csv",
           content = function(file){
-            write.csv2(granstat(bdd_gran,statistic=input$method,aggr=FALSE)$stat,"Statistics.csv",row.names=TRUE)
+            write.csv2(granstat(bdd_gran,statistic=input$method)$stat,"Statistics.csv",row.names=TRUE)
             #           
           })
       }
       if (input$gran=='Index') {
-        result <-granstat(bdd_gran,statistic=input$method,aggr=FALSE)$index
+        result <-granstat(bdd_gran,statistic=input$method)$index
         
         output$downloadData <- downloadHandler(
           filename = "Index.csv",
           content = function(file){
-            write.csv2(granstat(bdd_gran,statistic=input$method,aggr=FALSE)$index,"Index.csv",row.names=TRUE)
+            write.csv2(granstat(bdd_gran,statistic=input$method)$index,"Index.csv",row.names=TRUE)
             #           
           })
         #           
         
       }
       if (input$gran=='Texture') {
-        result <-granstat(bdd_gran,statistic=input$method,aggr=FALSE)$sedim
+        result <-granstat(bdd_gran,statistic=input$method)$sedim$texture
         
         output$downloadData <- downloadHandler(
           filename = "Texture.csv",
           content = function(file){
-            write.csv2(granstat(bdd_gran,statistic=input$method,aggr=FALSE)$sedim,"Texture.csv",row.names=TRUE)
+            write.csv2(granstat(bdd_gran,statistic=input$method)$sedim$texture,"Texture.csv",row.names=TRUE)
             #           
             #           
           })
       }
+      
+      if (input$gran=='Sedim') {
+        result <-granstat(bdd_gran,statistic=input$method)$sedim$descript
+        
+        output$downloadData <- downloadHandler(
+          filename = "Sedim.csv",
+          content = function(file){
+            write.csv2(granstat(bdd_gran,statistic=input$method)$sedim$descript,"Sedim.csv",row.names=TRUE)
+            #           
+            #           
+          })
+      }
+      
+      
       if (input$gran=='All') {
-        result <-granstat(bdd_gran,statistic=input$method,aggr=TRUE)
+        result <-granstat(bdd_gran,statistic=input$method)
         
         output$downloadData <- downloadHandler(
           filename = "output.zip",
@@ -77,10 +93,11 @@ shinyServer(function(input, output) {
             setwd(tempdir())
             print (tempdir())
             
-            fs <- c("Statistics.csv","Index.csv","Texture.csv")
-            write.csv2(granstat(bdd_gran,statistic=input$method,aggr=FALSE)$stat,"Statistics.csv",row.names=TRUE)
-            write.csv2(granstat(bdd_gran,statistic=input$method,aggr=FALSE)$index,"Index.csv",row.names=TRUE)
-            write.csv2(granstat(bdd_gran,statistic=input$method,aggr=FALSE)$sedim,"Texture.csv",row.names=TRUE)
+            fs <- c("Statistics.csv","Index.csv","Texture.csv","Sedim.csv")
+            write.csv2(granstat(bdd_gran,statistic=input$method)$stat,"Statistics.csv",row.names=TRUE)
+            write.csv2(granstat(bdd_gran,statistic=input$method)$index,"Index.csv",row.names=TRUE)
+            write.csv2(granstat(bdd_gran,statistic=input$method)$sedim$texture,"Texture.csv",row.names=TRUE)
+            write.csv2(granstat(bdd_gran,statistic=input$method)$sedim$descript,"Sedim.csv",row.names=TRUE)
             zip(zipfile=fname, files=fs)
           }, contentType = "application/zip"
            )
@@ -93,22 +110,22 @@ shinyServer(function(input, output) {
     
     output$plot1 <-renderPlot({
       
-      par(mfrow=c(length(c(input$from:input$to)),1))  
-      for (i in c(input$from:input$to))
-        granplot(bdd_gran,xc=i,hist=input$hist,cum=input$cum,main=names(bdd_gran)[i],cexname=1.2)
-      
+      if(input$from==input$to)
+      granplot(bdd_gran,xc=input$from,hist=input$hist,cum=input$cum,main=names(bdd_gran)[input$from],cexname=1.2)
+      if(input$from!=input$to)
+        granplot(bdd_gran,xc=input$from:input$to,hist=input$hist,cum=input$cum,cexname=1.2)
       # output$downloadplot1 <- downloadHandler(
       #   filename = "histo_output.png",
       #   content = function(file) {
       #     png(file)})
       
-    },height="auto",width=600) 
+    },height=600,width=600) 
     
     output$plot2 <-renderPlot({
       
       grandistrib(bdd_gran,scale=input$distritype,xlab = "")
       
-    },height="auto",width=800) 
+    },height=600,width=800) 
     
     
     bdd_gran
