@@ -6,11 +6,15 @@
 import("stats")
 import("reshape2")
 import("ggplot2")
+import("tibble")
+import("tidyr")
+import("readr")
+import("rlang")
+import("dplyr")
 importFrom("grDevices", "rainbow")
 importFrom("graphics", "axis", "barplot", "identify", "layout",
      "legend", "lines", "mtext", "par", "plot", "polygon",
      "text")
-importFrom("scales","trans_new","log_breaks")
 
 ##################################
 ##       G2Sd exports	  	    ##
