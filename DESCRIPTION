@@ -4,7 +4,7 @@ Title: Grain-Size Statistics and Description of Sediment
 Version: 2.2
 Date: 2020-03-01
 Depends: R (>= 3.0.2)
-Imports: reshape2, ggplot2, graphics, grDevices, dplyr, readr, rlang, tibble, tidyr, readxl,scales
+Imports: reshape2, ggplot2, graphics, grDevices, dplyr, readr, rlang, tibble, tidyr, readxl,scales,shiny
 Author: Regis K. Gallon (CNAM-Intechmer), Jerome Fournier (CNRS|MNHN)
 Maintainer: Regis K. Gallon <regis.gallon@lecnam.net>
 Description: Full descriptive statistics, physical description of sediment,
@@ -14,4 +14,3 @@ LazyData: TRUE
 URL: https://cran.r-project.org/package=G2Sd,
         http://regisgallon.wordpress.com/r-software/
 NeedsCompilation: no
-RoxygenNote: 7.0.2
