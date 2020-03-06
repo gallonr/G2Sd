@@ -4,7 +4,7 @@ library(shiny)
 
 stat.choose <- c("arithmetic","geometric", "folk.ward")
 # Define UI for miles per gallon application
-shinyUI(fluidPage(theme = "bootstrap.css",
+shinyUI(fluidPage(theme = "w3.css",
   
   # Application title
   headerPanel(strong("G2Sd : Grain-size Statistics and Description of Sediment")),  
@@ -44,9 +44,13 @@ shinyUI(fluidPage(theme = "bootstrap.css",
       h5(em(strong("Distribution plot"))),
       selectInput('distritype', '', c('fine','large'))
     ),
-    
+    hr(),
+    a(href="https://shiny.cnam.fr/",class="w3-button w3-dark-grey w3-block",tags$b("Shiny CNAM")),
+    hr(),
     span(p("For more information, please contact ",  a(span("regis.gallon@lecnam.net", style = "color:blue"), href="mailto:regis.gallon@lecnam.net?subject=[G2Sd]%20Information"),style ="text-align:center")),  
-    span(p(img(src = "https://media-exp1.licdn.com/dms/image/C4E0BAQFNO73Lo4I2Ng/company-logo_200_200/0?e=2159024400&v=beta&t=EWsUo-le-krHJWQD48FnEjKubdTTeir_zabBTObMl8Q", height = 100, width = 100),img(src = "cnrs.gif", height = 80, width = 80)),style ="text-align:center")  
+    span(p(img(src = "https://media-exp1.licdn.com/dms/image/C4E0BAQFNO73Lo4I2Ng/company-logo_200_200/0?e=2159024400&v=beta&t=EWsUo-le-krHJWQD48FnEjKubdTTeir_zabBTObMl8Q", height = 100, width = 100),img(src = "cnrs.gif", height = 80, width = 80)),style ="text-align:center"),  
+
+
     
   ),
   
