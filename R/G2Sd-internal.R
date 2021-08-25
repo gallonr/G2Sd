@@ -210,8 +210,8 @@ function(x){
                        if_else(meshsize<sedim[12] ,"silt","NA"))))))))))))))
                                                                                                                
 sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.value)) %>% 
-  spread(class,value) %>% select(samples,everything(),cgravel,mgravel,fgravel,vfgravel,vcsand,
-                                 csand,msand,fsand,vfsand,vcsilt,silt)
+  spread(class,value) %>% select(samples,everything(),any_of(c("cgravel","mgravel","fgravel","vfgravel","vcsand",
+                                 "csand","msand","fsand","vfsand","vcsilt","silt")))
     return(sediment)
   }
 .texture.sedim <- function(x){
