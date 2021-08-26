@@ -210,8 +210,8 @@ function(x){
                        if_else(meshsize<sedim[12] ,"silt","NA"))))))))))))))
                                                                                                                
 sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.value)) %>% 
-  spread(class,value) %>% select(samples,everything(),cgravel,mgravel,fgravel,vfgravel,vcsand,
-                                 csand,msand,fsand,vfsand,vcsilt,silt)
+  spread(class,value) %>% select(samples,everything(),any_of(c("cgravel","mgravel","fgravel","vfgravel","vcsand",
+                                 "csand","msand","fsand","vfsand","vcsilt","silt")))
     return(sediment)
   }
 .texture.sedim <- function(x){
@@ -230,7 +230,17 @@ sediment <- all %>% group_by(samples,class) %>% summarise(value=sum(relative.val
     mutate(sandmud=if_else(Sand==0 & Mud==0,0,
                    if_else(Sand>0 & Mud==0,10,
                    if_else(Sand==0 & Mud>0,0.01,
-                   if_else(Sand>0 & Mud>0,Sand/Mud,0))))) %>% 
+                   if_else(Sand>0 & Mud>0,Sand/Mud,0))))) 
+  
+  if(!"sandmud" %in% colnames(Texture)){
+    Texture <- Texture %>% mutate(sandmud = 0)
+  }
+  
+  if(!"Gravel" %in% colnames(Texture)){
+    Texture <- Texture %>% mutate(Gravel = 0)
+  }
+  
+  Texture <- Texture %>%
     mutate(texture=if_else(sandmud>=9 & Gravel>80, "Gravel",
                    if_else(sandmud>=9 & (Gravel>30 & Gravel<=80), "Sandy Gravel",
                    if_else(sandmud>=9 & (Gravel>5 & Gravel<=30), "Gravelly Sand",
