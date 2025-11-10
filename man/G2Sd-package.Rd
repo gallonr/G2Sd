@@ -24,8 +24,10 @@ There are four functions. \kbd{granstat} is a function which provides all result
 \kbd{grandistrib} is a function which provides a barplot of the different fractions composing the sediment;
 }
 \author{
-Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net},
-Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
+Regis K. Gallon (CNAM-Intechmer)\cr
+\email{regis.gallon@lecnam.net}\cr
+Jerome Fournier (CNRS)\cr
+\email{fournier@mnhn.fr}
 }
 \references{
 \cite{Blott, S., Pye, K. 2001. Gradistat: grain size distribution and statistics package for the analysis of unconsolidated sediment. \emph{Earth, Surface Processes and Landforms} \strong{26}, 1237-1248}

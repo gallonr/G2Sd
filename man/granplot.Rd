@@ -61,8 +61,10 @@ The obtained graph is the most commonly used by Sedimentologists
 A histogram with a cumulative percentage curve
 }
 \author{
-Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net},
-Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
+Regis K. Gallon (CNAM-Intechmer)\cr
+\email{regis.gallon@lecnam.net}\cr
+Jerome Fournier (CNRS)\cr
+\email{fournier@mnhn.fr}
 }
 \seealso{
 \code{\link[G2Sd]{grandistrib}}
