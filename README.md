@@ -1,4 +1,4 @@
-# G2Sd : Grain-size Statistics and Description of Sediment <img src="inst/extdata/www/G2SdLogo.png" align="right" width="200"/>
+# G2Sd : Grain-size Statistics and Description of Sediment <img src="inst/extdata/www/G2SdLogo.png" align="right" width="100"/>
 
 [![CRAN status](https://www.r-pkg.org/badges/version/G2Sd)](https://CRAN.R-project.org/package=G2Sd) [![Downloads](https://cranlogs.r-pkg.org/badges/G2Sd)](https://cran.r-project.org/package=G2Sd) [![R version](https://img.shields.io/badge/R-%E2%89%A5%203.0.2-blue)](https://www.r-project.org/) [![Language](https://img.shields.io/badge/language-R-blue.svg)](https://www.r-project.org/)
 
