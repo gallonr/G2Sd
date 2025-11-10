@@ -18,8 +18,8 @@
 
 ## Authors {#authors}
 
--   Regis K. Gallon (CNAM-Intechmer) [regis.gallon\@lecnam.net](regis.gallon@lecnam.net)
--   Jerome Fournier (CNRS) [fournier\@mnhn.fr](fournier@mnhn.fr)
+-   Regis K. Gallon (CNAM-Intechmer) <regis.gallon@lecnam.net>
+-   Jerome Fournier (CNRS) <fournier@mnhn.fr>
 
 ## Overview {#overview}
 
@@ -282,4 +282,4 @@ GPL-3
 
 ------------------------------------------------------------------------
 
-**Maintainer:** Regis K. Gallon (CNAM-Intechmer) - [regis.gallon\@lecnam.net](mailto:regis.gallon@lecnam.net)
+**Maintainer:** Regis K. Gallon (CNAM-Intechmer) - <regis.gallon@lecnam.net>
