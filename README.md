@@ -73,7 +73,7 @@ Calculate grain-size statistics for a single sample:
 
 ``` r
 # Analyze the first sample (column 2)
-result <- granstat(granulo, sample = 2)
+result <- granstat(granulo[, 2, drop = FALSE])
 
 # View the complete results
 print(result)
@@ -87,10 +87,10 @@ Create a histogram with cumulative curve:
 
 ``` r
 # Plot the grain-size distribution for sample 1
-granplot(granulo, sample = 1)
+granplot(granulo, 1)
 
 # Plot with custom title
-granplot(granulo, sample = 1, main = "Station A - Grain Size Distribution")
+granplot(granulo, 1, main = "Station A - Grain Size Distribution")
 ```
 
 ### Example 3: Analyzing Sediment Fractions
@@ -99,7 +99,7 @@ Display the distribution of sediment fractions:
 
 ``` r
 # Show sediment fractions for sample 5
-grandistrib(granulo, sample = 5)
+grandistrib(granulo, 5)
 
 # This creates a barplot showing percentages of:
 # - Gravel, sand (very coarse to very fine), silt, and clay fractions
@@ -113,13 +113,13 @@ Analyze all samples in the dataset:
 # Create a loop to analyze all samples
 results_list <- list()
 for (i in 2:ncol(granulo)) {
-  results_list[[i-1]] <- granstat(granulo, sample = i)
+  results_list[[i-1]] <- granstat(granulo[, i, drop = FALSE])
 }
 
 # Extract mean grain sizes for all samples
 mean_sizes <- sapply(2:ncol(granulo), function(i) {
-  res <- granstat(granulo, sample = i)
-  res$mmean  # Mean grain size in micrometers
+  res <- granstat(granulo[, i, drop = FALSE])
+  res$stat$arith$mmean  # Mean grain size in micrometers (arithmetic method)
 })
 
 print(mean_sizes)
@@ -134,18 +134,18 @@ library(G2Sd)
 data(granulo)
 
 # Analyze sample 3
-sample_stats <- granstat(granulo, sample = 3)
+sample_stats <- granstat(granulo[, 3, drop = FALSE])
 
 # Display key statistics
-cat("Mean grain size:", sample_stats$mmean, "µm\n")
-cat("Sorting:", sample_stats$sorting_descr, "\n")
-cat("Sediment name:", sample_stats$sediment_name, "\n")
+cat("Mean grain size:", sample_stats$stat$arith$mmean, "µm\n")
+cat("Sorting:", sample_stats$sedim$descript$sorting, "\n")
+cat("Sediment name:", sample_stats$sedim$texture$sedim_name, "\n")
 
 # Visualize the distribution
-granplot(granulo, sample = 3)
+granplot(granulo, 3)
 
 # Show fraction composition
-grandistrib(granulo, sample = 3)
+grandistrib(granulo, 3)
 ```
 
 ## Getting Help
