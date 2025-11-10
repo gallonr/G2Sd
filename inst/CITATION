@@ -5,7 +5,7 @@ bibentry(bibtype = "Article",
         author = c(person("Jerome", "Fournier"),
                    person("Regis K.", "Gallon"),
                    person("Raphael", "Paris")),
-	URL = "https://journals.openedition.org/geomorphologie/10513/",
+	URL = "https://journals.openedition.org/geomorphologie/10513",
   journal = "Geomorphologie: relief, processus, environnement",
   	year = "2014",
 	       
