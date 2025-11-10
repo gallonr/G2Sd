@@ -1,10 +1,12 @@
 citHeader("To cite in publications use: ")
 
-citEntry(entry="article",
+bibentry(bibtype = "Article",
 	title = "G2Sd: a new R package for the statistical analysis of unconsolidated sediments",
-        author = personList(as.person("Jerome Fournier"),as.person("Regis K.Gallon"),as.person("Raphael Paris")),
+        author = c(person("Jerome", "Fournier"),
+                   person("Regis K.", "Gallon"),
+                   person("Raphael", "Paris")),
 	URL = "http://geomorphologie.revues.org/10513",
-  journal="Geomorphologie: relief, processus, environnement",
+  journal = "Geomorphologie: relief, processus, environnement",
   	year = "2014",
 	       
         textVersion = 
