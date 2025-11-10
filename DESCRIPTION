@@ -12,7 +12,7 @@ Authors@R: c(person(given = c("Regis", "K."),
                     family = "Fournier",
                     role = "aut",
                     comment = "CNRS|MNHN"))
-Depends: R (>= 3.0.2)
+Depends: R (>= 4.1.0)
 Imports: ggplot2, dplyr, tidyr, tibble, viridis, patchwork, scales
 Suggests: shiny, bslib, shinyWidgets, plotly
 Description: Full descriptive statistics, physical description of sediment,
