@@ -16,16 +16,16 @@
 -   [References](#references)
 -   [License](#license)
 
-## Authors {#authors}
+## Authors {#authors .unlisted .unnumbered}
 
 -   Regis K. Gallon (CNAM-Intechmer) <regis.gallon@lecnam.net>
 -   Jerome Fournier (CNRS) <fournier@mnhn.fr>
 
-## Overview {#overview}
+## Overview {#overview .unlisted .unnumbered}
 
 **G2Sd** provides comprehensive descriptive statistics and physical descriptions of sediment based on grain-size distribution data obtained from metric or phi sieves.
 
-## Details {#details}
+## Details {#details .unlisted .unnumbered}
 
 The G2Sd package is an evolution of the Gradistat v.4.0 macro for MS Excel initially developped by Blott and Pye (2001) for phi sieves and Laser granulometer. This package is suited to analyse data obtained from metric (micrometer) or phi sieves. The user is required to input the weight of sediment retained on sieves spaced at any metric or phi intervals. Statistics are calculated using arithmetic and geometric Method of Moments (micrometer) and using logarithmic Folk and Ward (1957) Method (phi scale): mean, standard-deviation, skewness, kurtosis. The mode(s) is(are) determined graphically by the user (with a maximum of 4 modes). The determination of the mode is optional (no determination by default). Several percentiles and common index are calculated: D10, D50, D90, D90/D10, D90-D10, D75/D25, D75-D25, Trask(So) Index, Krumbein(Qd) Index. Physical description of texture, sorting, skewness or kurtosis are provided as such as the sediment name after Folk (1954). Are also included the percentage of particules falling into each predefined size fraction, modified from Blott and Pye (2001) scale, Udden (1914) and Wentworth (1922). There are three main functions :
 
@@ -35,7 +35,7 @@ The G2Sd package is an evolution of the Gradistat v.4.0 macro for MS Excel initi
 
 The package also includes an **interactive Shiny web application** for user-friendly analysis and visualization of grain-size data, featuring modern UI with plotly interactive plots.
 
-## Installation {#installation}
+## Installation {#installation .unlisted .unnumbered}
 
 ### From CRAN (Stable Version)
 
@@ -63,7 +63,7 @@ After installation, load the package:
 library(G2Sd)
 ```
 
-## Quick Start Examples {#quick-start-examples}
+## Quick Start Examples {#quick-start-examples .unlisted .unnumbered}
 
 ### Loading the Package and Data
 
@@ -144,7 +144,7 @@ results_list <- lapply(2:ncol(granulo), function(i) {
 mean_sizes <- sapply(results_list, function(x) x$stat$arith$mean.arith.um)
 ```
 
-### Example 5: Complete Analysis Workflow
+### Example 5: Complete Analysis Workflow {.unlisted .unnumbered}
 
 ``` r
 library(G2Sd)
@@ -168,7 +168,7 @@ granplot(granulo, 3)
 grandistrib(granulo, 3)
 ```
 
-## Interactive Shiny Application {#interactive-shiny-application}
+## Interactive Shiny Application {#interactive-shiny-application .unlisted .unnumbered}
 
 G2Sd includes a powerful interactive web application built with Shiny, allowing you to analyze and visualize grain-size data through an intuitive graphical interface.
 
@@ -182,9 +182,9 @@ The Shiny application provides:
 -   **Real-time analysis**: Instant statistical calculations as you explore your data
 -   **Multi-sample comparison**: Analyze and compare multiple samples simultaneously
 -   **Export results**: Download statistics tables and high-quality plots
--   **Modern UI**: Clean, responsive interface with Bootstrap 5 styling
+-   Modern UI: Clean, responsive interface with Bootstrap 5 styling
 
-### Launching the Application
+### Launching the Application {.unlisted .unnumbered}
 
 To start the Shiny application:
 
@@ -208,7 +208,7 @@ This will open the application in your default web browser. The interface includ
     -   Sediment fraction distribution
     -   Multi-sample ternary diagrams
 
-### Using Your Own Data
+### Using Your Own Data {.unlisted .unnumbered}
 
 The application accepts CSV or TXT files with: - Sieve sizes in micrometers as row names - Sample names as column headers - Weight retained on each sieve in the cells
 
@@ -222,7 +222,7 @@ Size,Sample1,Sample2,Sample3
 ...
 ```
 
-### Application Workflow
+### Application Workflow {.unlisted .unnumbered}
 
 1.  **Load Data**: Click "Load example data" or upload your own file
 2.  **Select Method**: Choose your preferred calculation method
@@ -233,7 +233,7 @@ Size,Sample1,Sample2,Sample3
     -   Compare fraction distributions
 5.  **Export**: Download results and figures for your reports
 
-## Getting Help {#getting-help}
+## Getting Help {#getting-help .unlisted .unnumbered}
 
 For detailed documentation on each function:
 
@@ -250,7 +250,7 @@ To launch the interactive Shiny application:
 granstat(web_interface = TRUE)
 ```
 
-## Citation {#citation}
+## Citation {#citation .unlisted .unnumbered}
 
 If you use G2Sd in your research, please cite:
 
@@ -258,11 +258,11 @@ If you use G2Sd in your research, please cite:
 citation("G2Sd")
 ```
 
-## Contributing {#contributing}
+## Contributing {#contributing .unlisted .unnumbered}
 
 Contributions, bug reports, and feature requests are welcome! Please feel free to open an issue or submit a pull request on [GitHub](https://github.com/gallonr/G2Sd).
 
-## References {#references}
+## References {#references .unlisted .unnumbered}
 
 Blott, S., Pye, K. 2001. Gradistat: grain size distribution and statistics package for the analysis of unconsolidated sediment. *Earth, Surface Processes and Landforms* **26**, 1237-1248
 
@@ -276,7 +276,7 @@ Udden, J.A. 1914. Mechanical composition of clastic sediments. *Bulletin of the 
 
 Wentworth, C.K. 1922. A scale of grade and class terms for clastic sediments. *Journal of Geology* **30**, 377-392
 
-## License {#license}
+## License {#license .unlisted .unnumbered}
 
 GPL-3
 
