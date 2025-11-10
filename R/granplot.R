@@ -16,9 +16,11 @@ granplot <-
     x <- x[order(as.numeric(row.names(x)), decreasing = decreasing), ]
 
     um <- as.numeric(row.names(x))
+    # Remplacer les valeurs 0 et negatives pour eviter les problemes avec log10
     if (!is.na(pmatch(0, um))) {
       um[pmatch(0, um)] = meshmin
     }
+    um[um <= 0] <- meshmin
 
     if (length(xc) == 1) {
       sum.sieve = sum(x[, xc])
@@ -78,7 +80,7 @@ granplot <-
               scale_y_continuous(
                 sec.axis = sec_axis(~ . * 1, name = "Percentage cum.(%)")
               ) +
-              scale_x_log10()
+              suppressWarnings(scale_x_log10())
           }
         } else {
           hist.cum.plot <- hist.cum.plot +
@@ -122,7 +124,7 @@ granplot <-
               ) +
               ylab("Percentage cum.(%)") +
               xlab(expression(log[10](Particule ~ size))) +
-              scale_x_log10()
+              suppressWarnings(scale_x_log10())
           }
         } else {
           hist.cum.plot <- hist.cum.plot +
@@ -159,7 +161,7 @@ granplot <-
               ) +
               ylab("Weight (%)") +
               xlab(expression(log[10](Particule ~ size))) +
-              scale_x_log10()
+              suppressWarnings(scale_x_log10())
           }
         } else {
           hist.cum.plot <- hist.cum.plot +
@@ -223,7 +225,7 @@ granplot <-
         scale_colour_hue("Stations")
 
       if (log.scale) {
-        p <- p + scale_x_log10()
+        p <- p + suppressWarnings(scale_x_log10())
       }
 
       print(p)
