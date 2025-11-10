@@ -7,8 +7,9 @@ import("ggplot2")
 import("tidyr")
 import("dplyr")
 import("viridis")
+importFrom("tibble", "rownames_to_column")
 importFrom("scales", "trans_new", "log_breaks")
-importFrom("stats", "na.omit")
+importFrom("stats", "na.omit", "var")
 importFrom("grDevices", "rainbow")
 importFrom(
      "graphics",
