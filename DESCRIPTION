@@ -1,8 +1,8 @@
 Package: G2Sd
 Type: Package
 Title: Grain-Size Statistics and Description of Sediment
-Version: 2.2
-Date: 2020-03-01
+Version: 2.3
+Date: 2025-11-10
 Authors@R: c(person(given = c("Regis", "K."),
                     family = "Gallon",
                     role = c("aut", "cre"),
@@ -13,10 +13,11 @@ Authors@R: c(person(given = c("Regis", "K."),
                     role = "aut",
                     comment = "CNRS|MNHN"))
 Depends: R (>= 3.0.2)
-Imports: ggplot2, graphics, grDevices, dplyr, readr, rlang, tibble, tidyr, readxl, scales, shiny
+Imports: ggplot2, dplyr, tidyr, viridis, shiny, bslib, shinyWidgets, plotly, patchwork
 Description: Full descriptive statistics, physical description of sediment,
-            metric or phi sieves.
+            metric or phi sieves. Includes a Shiny web application for
+            interactive grain size analysis and visualization.
 License: GPL-3
 LazyData: TRUE
-URL: https://cran.r-project.org/package=G2Sd
+URL: https://cran.r-project.org/package=G2Sd, https://github.com/gallonr/G2Sd
 NeedsCompilation: no
