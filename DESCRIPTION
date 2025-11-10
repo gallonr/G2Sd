@@ -3,14 +3,20 @@ Type: Package
 Title: Grain-Size Statistics and Description of Sediment
 Version: 2.2
 Date: 2020-03-01
+Authors@R: c(person(given = c("Regis", "K."),
+                    family = "Gallon",
+                    role = c("aut", "cre"),
+                    email = "regis.gallon@lecnam.net",
+                    comment = "CNAM-Intechmer"),
+             person(given = "Jerome",
+                    family = "Fournier",
+                    role = "aut",
+                    comment = "CNRS|MNHN"))
 Depends: R (>= 3.0.2)
-Imports: reshape2, ggplot2, graphics, grDevices, dplyr, readr, rlang, tibble, tidyr, readxl,scales,shiny
-Author: Regis K. Gallon (CNAM-Intechmer), Jerome Fournier (CNRS|MNHN)
-Maintainer: Regis K. Gallon <regis.gallon@lecnam.net>
+Imports: ggplot2, graphics, grDevices, dplyr, readr, rlang, tibble, tidyr, readxl, scales, shiny
 Description: Full descriptive statistics, physical description of sediment,
             metric or phi sieves.
 License: GPL-3
 LazyData: TRUE
-URL: https://cran.r-project.org/package=G2Sd,
-        http://regisgallon.wordpress.com/r-software/
+URL: https://cran.r-project.org/package=G2Sd
 NeedsCompilation: no
