@@ -3,22 +3,31 @@
 ####################################
 
 ### generic methods importation
-import("reshape2")
 import("ggplot2")
-import("tibble")
 import("tidyr")
-import("readr")
-import("rlang")
 import("dplyr")
-importFrom("scales", "trans_new","log_breaks")
+import("viridis")
+importFrom("scales", "trans_new", "log_breaks")
 importFrom("stats", "na.omit")
 importFrom("grDevices", "rainbow")
-importFrom("graphics", "axis", "barplot", "identify", "layout",
-     "legend", "lines", "mtext", "par", "plot", "polygon",
-     "text")
+importFrom(
+     "graphics",
+     "axis",
+     "barplot",
+     "identify",
+     "layout",
+     "legend",
+     "lines",
+     "mtext",
+     "par",
+     "plot",
+     "polygon",
+     "text"
+)
+importFrom("patchwork", "wrap_plots")
 
 ##################################
 ##       G2Sd exports	  	    ##
 ##################################
- 
-export(granstat,granplot,grandistrib)
+
+export(granstat, granplot, grandistrib)
