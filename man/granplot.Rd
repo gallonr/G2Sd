@@ -10,7 +10,7 @@ This function provides a histogram of the grain-size distribution with a cumulat
 \usage{
 granplot(x, xc = 1, meshmin=1, hist = TRUE, cum = TRUE, main = "", 
 			col.cum = "red", col.hist="darkgray", cexname=0.9,
-			cexlab=1.3,decreasing=FALSE)
+			cexlab=1.3, decreasing=FALSE, log.scale=TRUE)
 }
 \arguments{
   \item{x}{
@@ -50,6 +50,9 @@ relative to the default.
 \item{decreasing}{
 A logical value defining the order increasing or decreasing
 }
+\item{log.scale}{
+A logical value; if TRUE (default), use logarithmic scale for x-axis; if FALSE, use linear scale
+}
 }
 \details{
 The obtained graph is the most commonly used by Sedimentologists
@@ -58,7 +61,7 @@ The obtained graph is the most commonly used by Sedimentologists
 A histogram with a cumulative percentage curve
 }
 \author{
-Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}, 
+Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net},
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 \seealso{

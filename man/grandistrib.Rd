@@ -35,7 +35,7 @@ A barplot with the composition of sediment for each station sampled
 }
 
 \author{
-Regis K. Gallon (MNHN) \email{reg.gallon@gmail.com}
+Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net},
 }
 
 \seealso{

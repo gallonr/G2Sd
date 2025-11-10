@@ -110,7 +110,7 @@ A list containing
 \cite{Wentworth, C.K. 1922. A scale of grade and class terms for clastic sediments. \emph{Journal of Geology} \strong{30}, 377-392}
 }
 \author{
-Regis K. Gallon (MNHN) \email{regis.gallon@lecnam.net}, 
+Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net},
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 

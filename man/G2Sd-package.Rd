@@ -24,7 +24,7 @@ There are four functions. \kbd{granstat} is a function which provides all result
 \kbd{grandistrib} is a function which provides a barplot of the different fractions composing the sediment;
 }
 \author{
-Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net}, 
+Regis K. Gallon (CNAM-Intechmer) \email{regis.gallon@lecnam.net},
 Jerome Fournier (CNRS) \email{fournier@mnhn.fr}
 }
 \references{
