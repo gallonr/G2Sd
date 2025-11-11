@@ -7,8 +7,19 @@ import("ggplot2")
 import("tidyr")
 import("dplyr")
 import("viridis")
+import("shiny")
 importFrom("tibble", "rownames_to_column")
 importFrom("scales", "trans_new", "log_breaks")
+importFrom(
+     "bslib",
+     "page_navbar",
+     "nav_panel",
+     "card",
+     "card_header",
+     "card_body"
+)
+importFrom("shinyWidgets", "pickerInput")
+importFrom("plotly", "plotlyOutput", "renderPlotly", "ggplotly", "layout")
 importFrom("stats", "na.omit", "var")
 importFrom("grDevices", "rainbow")
 importFrom(
