@@ -13,8 +13,7 @@ Authors@R: c(person(given = c("Regis", "K."),
                     role = "aut",
                     comment = "CNRS|MNHN"))
 Depends: R (>= 4.1.0)
-Imports: ggplot2, dplyr, tidyr, tibble, viridis, patchwork, scales
-Suggests: shiny, bslib, shinyWidgets, plotly
+Imports: ggplot2, dplyr, tidyr, tibble, viridis, patchwork, scales,shiny, bslib, shinyWidgets, plotly
 Description: Full descriptive statistics, physical description of sediment,
             metric or phi sieves. Includes a Shiny web application for
             interactive grain size analysis and visualization.
