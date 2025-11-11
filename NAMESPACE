@@ -27,7 +27,6 @@ importFrom(
      "axis",
      "barplot",
      "identify",
-     "layout",
      "legend",
      "lines",
      "mtext",
