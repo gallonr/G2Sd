@@ -335,41 +335,89 @@ shinyServer(function(input, output, session) {
   # STATISTICS DISPLAY
   # ============================================================================
 
+  # Create separate outputs for each table when "All" is selected
+  output$stat_statistics <- renderTable(
+    {
+      req(result_stats(), input$gran == "All")
+      result_stats()$stat
+    },
+    rownames = TRUE,
+    digits = 3
+  )
+
+  output$stat_indices <- renderTable(
+    {
+      req(result_stats(), input$gran == "All")
+      result_stats()$index
+    },
+    rownames = TRUE,
+    digits = 3
+  )
+
+  output$stat_texture <- renderTable(
+    {
+      req(result_stats(), input$gran == "All")
+      result_stats()$sedim$texture
+    },
+    rownames = TRUE,
+    digits = 3
+  )
+
+  output$stat_sediment <- renderTable(
+    {
+      req(result_stats(), input$gran == "All")
+      result_stats()$sedim$descript
+    },
+    rownames = TRUE,
+    digits = 3
+  )
+
   output$stat_output <- renderUI({
     req(result_stats())
 
     result <- result_stats()
 
-    # Select data according to user choice
-    data_to_show <- switch(
-      input$gran,
-      "Statistics" = result$stat,
-      "Index" = result$index,
-      "Texture" = result$sedim$texture,
-      "Sedim" = result$sedim$descript,
-      "All" = list(
-        "Statistics" = result$stat,
-        "Indices" = result$index,
-        "Texture" = result$sedim$texture,
-        "Sediment" = result$sedim$descript
-      )
-    )
-
     if (input$gran == "All") {
-      # Display all tables
+      # Display all tables with proper rendering
       tagList(
-        lapply(names(data_to_show), function(name) {
-          card(
-            card_header(name),
-            div(
-              style = "overflow-x: auto;",
-              renderTable(data_to_show[[name]], rownames = TRUE, digits = 3)()
-            )
+        card(
+          card_header("Statistics"),
+          div(
+            style = "overflow-x: auto;",
+            tableOutput("stat_statistics")
           )
-        })
+        ),
+        card(
+          card_header("Indices"),
+          div(
+            style = "overflow-x: auto;",
+            tableOutput("stat_indices")
+          )
+        ),
+        card(
+          card_header("Texture"),
+          div(
+            style = "overflow-x: auto;",
+            tableOutput("stat_texture")
+          )
+        ),
+        card(
+          card_header("Sediment"),
+          div(
+            style = "overflow-x: auto;",
+            tableOutput("stat_sediment")
+          )
+        )
       )
     } else {
       # Display single table
+      data_to_show <- switch(
+        input$gran,
+        "Statistics" = result$stat,
+        "Index" = result$index,
+        "Texture" = result$sedim$texture,
+        "Sedim" = result$sedim$descript
+      )
       renderTable(data_to_show, rownames = TRUE, digits = 3)
     }
   })
