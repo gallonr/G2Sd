@@ -30,11 +30,12 @@
 <a id="details"></a>
 ## Details
 
-The G2Sd package is an evolution of the Gradistat v.4.0 macro for MS Excel initially developped by Blott and Pye (2001) for phi sieves and Laser granulometer. This package is suited to analyse data obtained from metric (micrometer) or phi sieves. The user is required to input the weight of sediment retained on sieves spaced at any metric or phi intervals. Statistics are calculated using arithmetic and geometric Method of Moments (micrometer) and using logarithmic Folk and Ward (1957) Method (phi scale): mean, standard-deviation, skewness, kurtosis. The mode(s) is(are) determined graphically by the user (with a maximum of 4 modes). The determination of the mode is optional (no determination by default). Several percentiles and common index are calculated: D10, D50, D90, D90/D10, D90-D10, D75/D25, D75-D25, Trask(So) Index, Krumbein(Qd) Index. Physical description of texture, sorting, skewness or kurtosis are provided as such as the sediment name after Folk (1954). Are also included the percentage of particules falling into each predefined size fraction, modified from Blott and Pye (2001) scale, Udden (1914) and Wentworth (1922). There are three main functions :
+The G2Sd package is an evolution of the Gradistat v.4.0 macro for MS Excel initially developped by Blott and Pye (2001) for phi sieves and Laser granulometer. This package is suited to analyse data obtained from metric (micrometer) or phi sieves. The user is required to input the weight of sediment retained on sieves spaced at any metric or phi intervals. Statistics are calculated using arithmetic and geometric Method of Moments (micrometer) and using logarithmic Folk and Ward (1957) Method (phi scale): mean, standard-deviation, skewness, kurtosis. The mode(s) is(are) determined graphically by the user (with a maximum of 4 modes). The determination of the mode is optional (no determination by default). Several percentiles and common index are calculated: D10, D50, D90, D90/D10, D90-D10, D75/D25, D75-D25, Trask(So) Index, Krumbein(Qd) Index. Physical description of texture, sorting, skewness or kurtosis are provided as such as the sediment name after Folk (1954). Are also included the percentage of particules falling into each predefined size fraction, modified from Blott and Pye (2001) scale, Udden (1914) and Wentworth (1922). There are four main functions :
 
 -   `granstat` is a function which provides all results organized in two ways: a complete matrix (by default) or by separate items;
 -   `granplot` is a function which provides a histogramm with a cumulative percentage curve;
--   `grandistrib` is a function which provides a barplot of the different fractions composing the sediment
+-   `grandistrib` is a function which provides a barplot of the different fractions composing the sediment;
+-   `grantern` is a function which provides a ternary diagram (Folk triangle) showing the relative proportions of Gravel, Sand, and Mud
 
 The package also includes an **interactive Shiny web application** for user-friendly analysis and visualization of grain-size data, featuring modern UI with plotly interactive plots.
 
@@ -122,7 +123,23 @@ grandistrib(granulo, 5)
 # - Gravel, sand (very coarse to very fine), silt, and clay fractions
 ```
 
-### Example 4: Batch Processing Multiple Samples
+### Example 4: Ternary Diagram (Folk Triangle)
+
+Visualize sediment composition in a ternary diagram:
+
+``` r
+# Create a ternary diagram showing Gravel-Sand-Mud proportions
+grantern(granulo, main = "Folk Triangle - Sediment Composition")
+
+# Ternary diagram without sample labels
+grantern(granulo, main = "Sediment Texture", show_labels = FALSE)
+
+# Customized diagram with larger red points and no grid
+grantern(granulo, main = "Sediment Analysis",
+         point_size = 5, point_color = "darkred", show_grid = FALSE)
+```
+
+### Example 5: Batch Processing Multiple Samples
 
 Analyze all samples in the dataset:
 
@@ -149,7 +166,7 @@ results_list <- lapply(2:ncol(granulo), function(i) {
 mean_sizes <- sapply(results_list, function(x) x$stat$arith$mean.arith.um)
 ```
 
-### Example 5: Complete Analysis Workflow {.unlisted .unnumbered}
+### Example 6: Complete Analysis Workflow {.unlisted .unnumbered}
 
 ``` r
 library(G2Sd)
@@ -171,6 +188,9 @@ granplot(granulo, 3)
 
 # Show fraction composition
 grandistrib(granulo, 3)
+
+# Create ternary diagram
+grantern(granulo, main = "All Samples - Folk Triangle")
 ```
 
 <a id="interactive-shiny-application"></a>
@@ -248,6 +268,7 @@ For detailed documentation on each function:
 ?granstat      # Statistical analysis
 ?granplot      # Histogram and cumulative curve
 ?grandistrib   # Fraction distribution
+?grantern      # Ternary diagram (Folk triangle)
 ?granulo       # Example dataset description
 ```
 
