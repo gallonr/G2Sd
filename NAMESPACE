@@ -41,4 +41,4 @@ importFrom("patchwork", "wrap_plots")
 ##       G2Sd exports	  	    ##
 ##################################
 
-export(granstat, granplot, grandistrib)
+export(granstat, granplot, grandistrib, grantern)
